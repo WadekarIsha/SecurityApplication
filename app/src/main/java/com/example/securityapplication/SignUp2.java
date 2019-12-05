@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
@@ -20,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 
 
 import com.example.securityapplication.model.User;
@@ -80,6 +81,7 @@ public class SignUp2 extends AppCompatActivity {
 
     private void initListeners(){
         btn_submit.setOnClickListener(new View.OnClickListener() {
+           // @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
                 //Call the method to validate the fields
@@ -153,8 +155,9 @@ public class SignUp2 extends AppCompatActivity {
                         }
                     } else {
                         Log.d("SIgnUP2", "PERMISSION FOR READ STATE NOT GRANTED, REQUESTING PERMSISSION...");
-                        ActivityCompat.requestPermissions(activity,
-                                new String[]{Manifest.permission.READ_PHONE_STATE}, RC);
+                            ActivityCompat.requestPermissions(activity,
+                                    new String[]{Manifest.permission.READ_PHONE_STATE}, RC);
+
                     }
 
 
