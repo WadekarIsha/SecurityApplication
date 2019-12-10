@@ -40,6 +40,7 @@ dependencies {
 
     implementation 'com.facebook.android:facebook-login:5.0.1'
     implementation files('libs\\TarsosDSP-latest.jar')
+    implementation project(":pocketsphinx-android-5prealpha-release")
 
 
 }
