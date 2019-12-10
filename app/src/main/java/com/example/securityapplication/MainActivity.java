@@ -182,10 +182,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         while(!checkSMSPermission());
 
-       // while(!checkGPSPermission());
+        if(!checkGPSPermission());
 
         Intent mGpsServiceIntent = new Intent(this, GetGPSCoordinates.class);
         startService(mGpsServiceIntent);
+
+        if(!checkMicrophonePermission());
+
+        Intent mSpeechToTextIntent = new Intent(this,SpeechToTextService.class);
+        startService(mSpeechToTextIntent);
+    }
+
+    public boolean checkMicrophonePermission(){
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO)!= PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(this,"Permission required for sending alert in case of SOS", Toast.LENGTH_LONG).show();
+            Log.d("MainActivity","PERMISSION FOR MICROPHONE NOT GRANTED, REQUESTING PeRMISSION...");
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECORD_AUDIO}, RC);
+
+        }
+        return ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO)== PackageManager.PERMISSION_GRANTED;
     }
 
     public  boolean checkSMSPermission(){
