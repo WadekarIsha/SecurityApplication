@@ -30,4 +30,10 @@
     <string name="reset_password_desc">By clicking RESET PASSWORD an email will be sent to your registered email address to reset the password</string>
     <string name="dbname">Security_app2.db</string>
     <string name="speech_not_supported">Sorry, your device doesn\'t support speech input</string>
+
+    <string name="kws_caption">To start demonstration say \"help \".</string>
+    <string name="menu_caption">Say \"digits\", \"forecast\" or \"phones\" to choose the grammar, language model or phonetic decoder example.</string>
+    <string name="digits_caption">To try recognition of digits: say something like \"one two three four five\".</string>
+    <string name="forecast_caption">To try recognition of a weather forecast like \"sunny spells on Wednesday\".</string>
+    <string name="phone_caption">To try phonetic recognition say anything.</string>
 </resources>

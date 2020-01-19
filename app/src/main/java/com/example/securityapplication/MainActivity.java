@@ -182,27 +182,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         while(!checkSMSPermission());
 
+
         if(!checkGPSPermission());
 
         Intent mGpsServiceIntent = new Intent(this, GetGPSCoordinates.class);
         startService(mGpsServiceIntent);
 
-        if(!checkMicrophonePermission());
 
-        Intent mSpeechToTextIntent = new Intent(this,SpeechToTextService.class);
-        startService(mSpeechToTextIntent);
+      //  if(!checkMicrophonePermission());
+      //  if(!checkStoragePermission());
+
+       // Intent mPocketSphinxServiceIntent = new Intent(this,PocketSphinxService.class);
+       // startService(mPocketSphinxServiceIntent);
+    }
+
+  /*  public boolean checkStoragePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permission required for sending alert in case of SOS", Toast.LENGTH_LONG).show();
+            Log.d("MainActivity", "PERMISSION FOR EXTERNAL STORAGE NOT GRANTED, REQUESTING PERMISSION...");
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC);
+
+        }
+        return ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED;
     }
 
     public boolean checkMicrophonePermission(){
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO)!= PackageManager.PERMISSION_GRANTED){
             Toast.makeText(this,"Permission required for sending alert in case of SOS", Toast.LENGTH_LONG).show();
-            Log.d("MainActivity","PERMISSION FOR MICROPHONE NOT GRANTED, REQUESTING PeRMISSION...");
+            Log.d("MainActivity","PERMISSION FOR MICROPHONE NOT GRANTED, REQUESTING PERMISSION...");
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.RECORD_AUDIO}, RC);
 
+
         }
+
         return ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO)== PackageManager.PERMISSION_GRANTED;
-    }
+
+    }*/
 
     public  boolean checkSMSPermission(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED){
